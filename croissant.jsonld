@@ -92,7 +92,7 @@
         "name": "metmap_curated.csv",
         "description": "Adapter input mapped to METMAP_PATH.",
         "contentUrl": "https://zenodo.org/records/10200150/files/metmap_curated.csv?download=1",
-        "encodingFormat": "text/csv",
+        "encodingFormat": "text/tab-separated-values",
         "md5": "879b2339270432476520399aa55da402"
       }
     ],
@@ -103,6 +103,458 @@
     "creator": {
       "@type": "Person",
       "name": "Elias Farr"
-    }
+    },
+    "recordSet": [
+      {
+        "@type": "cr:RecordSet",
+        "@id": "actions",
+        "name": "actions",
+        "description": "STITCH interaction actions. The action column may be blank.",
+        "field": [
+          {
+            "@type": "cr:Field",
+            "@id": "actions/item_id_a",
+            "name": "item_id_a",
+            "description": "First interacting entity identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#ACTIONS_PATH"
+              },
+              "extract": {
+                "column": "item_id_a"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "actions/item_id_b",
+            "name": "item_id_b",
+            "description": "Second interacting entity identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#ACTIONS_PATH"
+              },
+              "extract": {
+                "column": "item_id_b"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "actions/mode",
+            "name": "mode",
+            "description": "Interaction mode",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#ACTIONS_PATH"
+              },
+              "extract": {
+                "column": "mode"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "actions/action",
+            "name": "action",
+            "description": "Specific action, when supplied",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#ACTIONS_PATH"
+              },
+              "extract": {
+                "column": "action"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "actions/a_is_acting",
+            "name": "a_is_acting",
+            "description": "Source direction flag (t or f)",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#ACTIONS_PATH"
+              },
+              "extract": {
+                "column": "a_is_acting"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "actions/score",
+            "name": "score",
+            "description": "Interaction confidence score",
+            "dataType": "sc:Integer",
+            "source": {
+              "fileObject": {
+                "@id": "#ACTIONS_PATH"
+              },
+              "extract": {
+                "column": "score"
+              }
+            }
+          }
+        ],
+        "examples": [
+          {
+            "actions/item_id_a": "9606.ENSP00000170630",
+            "actions/item_id_b": "CIDm00010461",
+            "actions/mode": "expression",
+            "actions/action": "",
+            "actions/a_is_acting": "f",
+            "actions/score": 150
+          },
+          {
+            "actions/item_id_a": "CIDm00010461",
+            "actions/item_id_b": "9606.ENSP00000170630",
+            "actions/mode": "expression",
+            "actions/action": "",
+            "actions/a_is_acting": "t",
+            "actions/score": 150
+          }
+        ]
+      },
+      {
+        "@type": "cr:RecordSet",
+        "@id": "details",
+        "name": "details",
+        "description": "STITCH evidence scores for human protein–chemical links.",
+        "field": [
+          {
+            "@type": "cr:Field",
+            "@id": "details/chemical",
+            "name": "chemical",
+            "description": "STITCH chemical identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#DETAILS_PATH"
+              },
+              "extract": {
+                "column": "chemical"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "details/protein",
+            "name": "protein",
+            "description": "Human STITCH protein identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#DETAILS_PATH"
+              },
+              "extract": {
+                "column": "protein"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "details/experimental",
+            "name": "experimental",
+            "description": "Experimental evidence score",
+            "dataType": "sc:Integer",
+            "source": {
+              "fileObject": {
+                "@id": "#DETAILS_PATH"
+              },
+              "extract": {
+                "column": "experimental"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "details/prediction",
+            "name": "prediction",
+            "description": "Prediction evidence score",
+            "dataType": "sc:Integer",
+            "source": {
+              "fileObject": {
+                "@id": "#DETAILS_PATH"
+              },
+              "extract": {
+                "column": "prediction"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "details/database",
+            "name": "database",
+            "description": "Database evidence score",
+            "dataType": "sc:Integer",
+            "source": {
+              "fileObject": {
+                "@id": "#DETAILS_PATH"
+              },
+              "extract": {
+                "column": "database"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "details/textmining",
+            "name": "textmining",
+            "description": "Text-mining evidence score",
+            "dataType": "sc:Integer",
+            "source": {
+              "fileObject": {
+                "@id": "#DETAILS_PATH"
+              },
+              "extract": {
+                "column": "textmining"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "details/combined_score",
+            "name": "combined_score",
+            "description": "Combined interaction confidence score",
+            "dataType": "sc:Integer",
+            "source": {
+              "fileObject": {
+                "@id": "#DETAILS_PATH"
+              },
+              "extract": {
+                "column": "combined_score"
+              }
+            }
+          }
+        ],
+        "examples": [
+          {
+            "details/chemical": "CIDm91758680",
+            "details/protein": "9606.ENSP00000257254",
+            "details/experimental": 0,
+            "details/prediction": 0,
+            "details/database": 0,
+            "details/textmining": 278,
+            "details/combined_score": 279
+          },
+          {
+            "details/chemical": "CIDm91758680",
+            "details/protein": "9606.ENSP00000302120",
+            "details/experimental": 0,
+            "details/prediction": 0,
+            "details/database": 0,
+            "details/textmining": 154,
+            "details/combined_score": 154
+          }
+        ]
+      },
+      {
+        "@type": "cr:RecordSet",
+        "@id": "metmap",
+        "name": "metmap",
+        "description": "Curated metabolite identifier mappings. The file is tab-delimited and uses NA for missing values.",
+        "field": [
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/row_index",
+            "name": "row_index",
+            "description": "Exported row index with an empty source header (read as Unnamed: 0 by pandas)",
+            "dataType": "sc:Integer",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "Unnamed: 0"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/CAS",
+            "name": "CAS",
+            "description": "CAS registry number",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "CAS"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/DTXSID",
+            "name": "DTXSID",
+            "description": "CompTox substance identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "DTXSID"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/DTXCID",
+            "name": "DTXCID",
+            "description": "CompTox compound identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "DTXCID"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/SID",
+            "name": "SID",
+            "description": "PubChem substance identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "SID"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/CID",
+            "name": "CID",
+            "description": "PubChem compound identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "CID"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/KEGG",
+            "name": "KEGG",
+            "description": "KEGG compound identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "KEGG"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/ChEBI",
+            "name": "ChEBI",
+            "description": "ChEBI identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "ChEBI"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/HMDB",
+            "name": "HMDB",
+            "description": "HMDB identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "HMDB"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/Drugbank",
+            "name": "Drugbank",
+            "description": "DrugBank identifier",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "Drugbank"
+              }
+            }
+          },
+          {
+            "@type": "cr:Field",
+            "@id": "metmap/Name",
+            "name": "Name",
+            "description": "Metabolite name",
+            "dataType": "sc:Text",
+            "source": {
+              "fileObject": {
+                "@id": "#METMAP_PATH"
+              },
+              "extract": {
+                "column": "Name"
+              }
+            }
+          }
+        ],
+        "examples": [
+          {
+            "metmap/row_index": 1,
+            "metmap/CAS": "18523-69-8",
+            "metmap/DTXSID": "DTXSID2020008",
+            "metmap/DTXCID": "DTXCID808",
+            "metmap/SID": "315671030",
+            "metmap/CID": "4415524",
+            "metmap/KEGG": "NA",
+            "metmap/ChEBI": "NA",
+            "metmap/HMDB": "NA",
+            "metmap/Drugbank": "NA",
+            "metmap/Name": "Acetone[4-(5-nitro-2-furyl)-2-thiazolyl] hydrazone"
+          },
+          {
+            "metmap/row_index": 2,
+            "metmap/CAS": "75-05-8",
+            "metmap/DTXSID": "DTXSID7020009",
+            "metmap/DTXCID": "DTXCID909",
+            "metmap/SID": "315671031",
+            "metmap/CID": "6342",
+            "metmap/KEGG": "NA",
+            "metmap/ChEBI": "38472",
+            "metmap/HMDB": "HMDB0061869",
+            "metmap/Drugbank": "NA",
+            "metmap/Name": "Acetonitrile"
+          }
+        ]
+      }
+    ]
   }
 }
