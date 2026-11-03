@@ -1,0 +1,72 @@
+{
+  "@context": {
+    "@vocab": "https://schema.org/",
+    "@base": "https://github.com/yasfazl/metalinks",
+    "cr": "http://mlcommons.org/croissant/",
+    "dct": "http://purl.org/dc/terms/",
+    "conformsTo": "dct:conformsTo",
+    "citeAs": "cr:citeAs",
+    "md5": "cr:md5"
+  },
+  "@type": "SoftwareSourceCode",
+  "name": "MetaLinks BioCypher adapter",
+  "description": "Integrates human protein–chemical interactions and metabolite identifier mappings for MetaLinksDB knowledge graph generation.",
+  "version": "db08397e72c822b6629ce1accbbd0f556256d012",
+  "license": "https://github.com/yasfazl/metalinks/blob/main/LICENSE",
+  "codeRepository": "https://github.com/yasfazl/metalinks",
+  "creator": {
+    "@type": "Person",
+    "name": "Elias Farr",
+    "url": "https://github.com/EliasFarr"
+  },
+  "keywords": [
+    "BioCypher",
+    "MetaLinksDB",
+    "STITCH",
+    "knowledge graph"
+  ],
+  "hasPart": {
+    "@type": "Dataset",
+    "name": "Offline resource for metalinks KG generation",
+    "description": "Three source files consumed by the protein–chemical interaction adapter.",
+    "url": "https://zenodo.org/records/10200150",
+    "conformsTo": "http://mlcommons.org/croissant/1.0",
+    "distribution": [
+      {
+        "@type": "cr:FileObject",
+        "@id": "#ACTIONS_PATH",
+        "name": "9606.actions.v5.0.tsv",
+        "description": "Adapter input mapped to ACTIONS_PATH.",
+        "contentUrl": "https://zenodo.org/records/10200150/files/9606.actions.v5.0.tsv?download=1",
+        "encodingFormat": "text/tab-separated-values",
+        "md5": "26eddaa0f8c4ab46a0da8ee6ece9aed2"
+      },
+      {
+        "@type": "cr:FileObject",
+        "@id": "#DETAILS_PATH",
+        "name": "9606.protein_chemical.links.detailed.v5.0.tsv",
+        "description": "Adapter input mapped to DETAILS_PATH.",
+        "contentUrl": "https://zenodo.org/records/10200150/files/9606.protein_chemical.links.detailed.v5.0.tsv?download=1",
+        "encodingFormat": "text/tab-separated-values",
+        "md5": "7b768c8b21e60e42e17a84c07097bbf9"
+      },
+      {
+        "@type": "cr:FileObject",
+        "@id": "#METMAP_PATH",
+        "name": "metmap_curated.csv",
+        "description": "Adapter input mapped to METMAP_PATH.",
+        "contentUrl": "https://zenodo.org/records/10200150/files/metmap_curated.csv?download=1",
+        "encodingFormat": "text/csv",
+        "md5": "879b2339270432476520399aa55da402"
+      }
+    ],
+    "version": "v1",
+    "license": "NOASSERTION",
+    "datePublished": "2023-11-23",
+    "citeAs": "https://doi.org/10.5281/zenodo.10200150",
+    "creator": {
+      "@type": "Person",
+      "name": "Elias Farr"
+    }
+  }
+}
