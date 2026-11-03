@@ -47,7 +47,7 @@
   "@type": "SoftwareSourceCode",
   "name": "MetaLinks BioCypher adapter",
   "description": "Integrates human protein–chemical interactions and metabolite identifier mappings for MetaLinksDB knowledge graph generation.",
-  "version": "db08397e72c822b6629ce1accbbd0f556256d012",
+  "version": "0.0.2",
   "license": "https://github.com/yasfazl/metalinks/blob/main/LICENSE",
   "codeRepository": "https://github.com/yasfazl/metalinks",
   "creator": {
