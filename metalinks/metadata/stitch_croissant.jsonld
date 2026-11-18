@@ -1,0 +1,349 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "dct": "http://purl.org/dc/terms/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "equivalentProperty": "cr:equivalentProperty",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "bsc": "https://bioschemas.org/profiles/Dataset/1.0-RELEASE/",
+    "componentType": "https://biocypher.org/registry/terms/componentType",
+    "granularity": "https://biocypher.org/registry/terms/granularity",
+    "@base": "cr_base_iri/"
+  },
+  "@type": "SoftwareSourceCode",
+  "componentType": "adapter",
+  "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE/",
+  "@id": "stitch-biocypher-adapter",
+  "name": "STITCH BioCypher Adapter",
+  "description": "BioCypher adapter for human chemical–protein interactions from STITCH 5.0, used by the MetaLinks pipeline. Reads interaction actions and detailed evidence scores from archived STITCH tables hosted on Zenodo. Filters interactions and uses HMDB and Ensembl-to-UniProt mappings retrieved through pypath to normalize identifiers. Produces metabolite–protein edges with interaction modes and evidence scores for integration into the MetaLinks knowledge graph.",
+  "version": "0.1.0",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "codeRepository": "https://github.com/biocypher/metalinks",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Elias Farr",
+      "affiliation": "University Hospital Heidelberg",
+      "url": "https://github.com/EliasFarr"
+    }
+  ],
+  "keywords": [
+    "biocypher",
+    "metabolomics",
+    "metalinks"
+  ],
+  "hasPart": [
+    {
+      "@type": "sc:Dataset",
+      "name": "STITCH human interaction actions — archived snapshot",
+      "description": "Human STITCH 5.0 chemical–protein interaction actions, including interaction mode, action, direction indicator, and confidence score. This snapshot is archived in Zenodo record 10200150, published on 2023-11-23. Its uncompressed contents match the original STITCH download.",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
+      "citeAs": "@article{10.1093/nar/gkv1277,\r\n    author = {Szklarczyk, Damian and Santos, Alberto and von Mering, Christian and Jensen, Lars Juhl and Bork, Peer and Kuhn, Michael},\r\n    title = {STITCH 5: augmenting protein–chemical interaction networks with tissue and affinity data},\r\n    journal = {Nucleic Acids Research},\r\n    volume = {44},\r\n    number = {D1},\r\n    pages = {D380-D384},\r\n    year = {2016},\r\n    month = {01},\r\n    abstract = {Interactions between proteins and small molecules are an integral part of biological processes in living organisms. Information on these interactions is dispersed over many databases, texts and prediction methods, which makes it difficult to get a comprehensive overview of the available evidence. To address this, we have developed STITCH (‘Search Tool for Interacting Chemicals’) that integrates these disparate data sources for 430 000 chemicals into a single, easy-to-use resource. In addition to the increased scope of the database, we have implemented a new network view that gives the user the ability to view binding affinities of chemicals in the interaction network. This enables the user to get a quick overview of the potential effects of the chemical on its interaction partners. For each organism, STITCH provides a global network; however, not all proteins have the same pattern of spatial expression. Therefore, only a certain subset of interactions can occur simultaneously. In the new, fifth release of STITCH, we have implemented functionality to filter out the proteins and chemicals not associated with a given tissue. The STITCH database can be downloaded in full, accessed programmatically via an extensive API, or searched via a redesigned web interface at http://stitch.embl.de.},\r\n    issn = {0305-1048},\r\n    doi = {10.1093/nar/gkv1277},\r\n    url = {https://doi.org/10.1093/nar/gkv1277},\r\n    eprint = {https://academic.oup.com/nar/article-pdf/44/D1/D380/9483631/gkv1277.pdf},\r\n}",
+      "creator": [
+        {
+          "@type": "sc:Organization",
+          "name": "STITCH Consortium"
+        }
+      ],
+      "datePublished": "2023-11-23T00:00:00Z",
+      "license": "CC-BY-4.0",
+      "url": "https://stitch-db.org/cgi/download.pl?species_text=Homo+sapiens",
+      "version": "5.0",
+      "distribution": [
+        {
+          "@type": "cr:FileObject",
+          "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/file_0",
+          "name": "9606.actions.v5.0.tsv",
+          "contentSize": "1081387536",
+          "contentUrl": "https://zenodo.org/records/10200150/files/9606.actions.v5.0.tsv?download=1",
+          "encodingFormat": "text/tab-separated-values",
+          "sha256": "ae37a0800f220e414680cbf6720ac5f8c4668ed46310445d6700c94c34a849d8"
+        }
+      ],
+      "recordSet": [
+        {
+          "@type": "cr:RecordSet",
+          "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/9606.actions.v5.0",
+          "name": "stitch-human-interaction-actions-—-archived-snapshot-1/9606.actions.v5.0",
+          "description": "Records from 9606.actions.v5.0.tsv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "name": "item_id_a",
+              "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/9606.actions.v5.0/item_id_a",
+              "dataType": "sc:Text",
+              "description": "Column 'item_id_a' from 9606.actions.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/file_0"
+                },
+                "extract": {
+                  "column": "item_id_a"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "item_id_b",
+              "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/9606.actions.v5.0/item_id_b",
+              "dataType": "sc:Text",
+              "description": "Column 'item_id_b' from 9606.actions.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/file_0"
+                },
+                "extract": {
+                  "column": "item_id_b"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "mode",
+              "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/9606.actions.v5.0/mode",
+              "dataType": "sc:Text",
+              "description": "Column 'mode' from 9606.actions.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/file_0"
+                },
+                "extract": {
+                  "column": "mode"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "action",
+              "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/9606.actions.v5.0/action",
+              "dataType": "sc:Text",
+              "description": "Column 'action' from 9606.actions.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/file_0"
+                },
+                "extract": {
+                  "column": "action"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "a_is_acting",
+              "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/9606.actions.v5.0/a_is_acting",
+              "dataType": "sc:Text",
+              "description": "Column 'a_is_acting' from 9606.actions.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/file_0"
+                },
+                "extract": {
+                  "column": "a_is_acting"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "score",
+              "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/9606.actions.v5.0/score",
+              "dataType": "cr:Int64",
+              "description": "Column 'score' from 9606.actions.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-interaction-actions-—-archived-snapshot-1/file_0"
+                },
+                "extract": {
+                  "column": "score"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "sc:Dataset",
+      "name": "STITCH human detailed protein–chemical links — archived snapshot",
+      "description": "Human STITCH 5.0 chemical–protein associations with experimental, prediction, database, text-mining, and combined evidence scores. This snapshot is archived in Zenodo record 10200150, published on 2023-11-23. Its uncompressed contents match the original STITCH download.",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
+      "citeAs": "@article{10.1093/nar/gkv1277,\r\n    author = {Szklarczyk, Damian and Santos, Alberto and von Mering, Christian and Jensen, Lars Juhl and Bork, Peer and Kuhn, Michael},\r\n    title = {STITCH 5: augmenting protein–chemical interaction networks with tissue and affinity data},\r\n    journal = {Nucleic Acids Research},\r\n    volume = {44},\r\n    number = {D1},\r\n    pages = {D380-D384},\r\n    year = {2016},\r\n    month = {01},\r\n    abstract = {Interactions between proteins and small molecules are an integral part of biological processes in living organisms. Information on these interactions is dispersed over many databases, texts and prediction methods, which makes it difficult to get a comprehensive overview of the available evidence. To address this, we have developed STITCH (‘Search Tool for Interacting Chemicals’) that integrates these disparate data sources for 430 000 chemicals into a single, easy-to-use resource. In addition to the increased scope of the database, we have implemented a new network view that gives the user the ability to view binding affinities of chemicals in the interaction network. This enables the user to get a quick overview of the potential effects of the chemical on its interaction partners. For each organism, STITCH provides a global network; however, not all proteins have the same pattern of spatial expression. Therefore, only a certain subset of interactions can occur simultaneously. In the new, fifth release of STITCH, we have implemented functionality to filter out the proteins and chemicals not associated with a given tissue. The STITCH database can be downloaded in full, accessed programmatically via an extensive API, or searched via a redesigned web interface at http://stitch.embl.de.},\r\n    issn = {0305-1048},\r\n    doi = {10.1093/nar/gkv1277},\r\n    url = {https://doi.org/10.1093/nar/gkv1277},\r\n    eprint = {https://academic.oup.com/nar/article-pdf/44/D1/D380/9483631/gkv1277.pdf},\r\n}",
+      "creator": [
+        {
+          "@type": "sc:Organization",
+          "name": "STITCH Consortium"
+        }
+      ],
+      "datePublished": "2023-11-23T00:00:00Z",
+      "license": "CC-BY-4.0",
+      "url": "https://stitch-db.org/cgi/download.pl?species_text=Homo+sapiens",
+      "version": "5.0",
+      "distribution": [
+        {
+          "@type": "cr:FileObject",
+          "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/file_0",
+          "name": "9606.protein_chemical.links.detailed.v5.0.tsv",
+          "contentSize": "745016311",
+          "contentUrl": "https://zenodo.org/records/10200150/files/9606.protein_chemical.links.detailed.v5.0.tsv?download=1",
+          "encodingFormat": "text/tab-separated-values",
+          "sha256": "309c0af55cef4eebfebc3d0deec080da88f3efb7652c415bc664dacc02cb2736"
+        }
+      ],
+      "recordSet": [
+        {
+          "@type": "cr:RecordSet",
+          "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/9606.protein_chemical.links.detailed.v5.0",
+          "name": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/9606.protein_chemical.links.detailed.v5.0",
+          "description": "Records from 9606.protein_chemical.links.detailed.v5.0.tsv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "name": "chemical",
+              "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/9606.protein_chemical.links.detailed.v5.0/chemical",
+              "dataType": "sc:Text",
+              "description": "Column 'chemical' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/file_0"
+                },
+                "extract": {
+                  "column": "chemical"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "protein",
+              "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/9606.protein_chemical.links.detailed.v5.0/protein",
+              "dataType": "sc:Text",
+              "description": "Column 'protein' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/file_0"
+                },
+                "extract": {
+                  "column": "protein"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "experimental",
+              "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/9606.protein_chemical.links.detailed.v5.0/experimental",
+              "dataType": "cr:Int64",
+              "description": "Column 'experimental' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/file_0"
+                },
+                "extract": {
+                  "column": "experimental"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "prediction",
+              "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/9606.protein_chemical.links.detailed.v5.0/prediction",
+              "dataType": "cr:Int64",
+              "description": "Column 'prediction' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/file_0"
+                },
+                "extract": {
+                  "column": "prediction"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "database",
+              "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/9606.protein_chemical.links.detailed.v5.0/database",
+              "dataType": "cr:Int64",
+              "description": "Column 'database' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/file_0"
+                },
+                "extract": {
+                  "column": "database"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "textmining",
+              "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/9606.protein_chemical.links.detailed.v5.0/textmining",
+              "dataType": "cr:Int64",
+              "description": "Column 'textmining' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/file_0"
+                },
+                "extract": {
+                  "column": "textmining"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "name": "combined_score",
+              "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/9606.protein_chemical.links.detailed.v5.0/combined_score",
+              "dataType": "cr:Int64",
+              "description": "Column 'combined_score' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-human-detailed-protein–chemical-links-—-archived-snapshot-2/file_0"
+                },
+                "extract": {
+                  "column": "combined_score"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "granularity": "Primary"
+}

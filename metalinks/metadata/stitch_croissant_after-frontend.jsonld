@@ -1,0 +1,328 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "dct": "http://purl.org/dc/terms/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "equivalentProperty": "cr:equivalentProperty",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "bsc": "https://bioschemas.org/profiles/Dataset/1.0-RELEASE/",
+    "componentType": "https://biocypher.org/registry/terms/componentType",
+    "granularity": "https://biocypher.org/registry/terms/granularity",
+    "@base": "cr_base_iri/"
+  },
+  "@type": "SoftwareSourceCode",
+  "componentType": "adapter",
+  "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE/",
+  "@id": "stitch-biocypher-adapter",
+  "name": "STITCH BioCypher Adapter",
+  "description": "BioCypher adapter for human chemical–protein interactions from STITCH 5.0, used by the MetaLinks pipeline. Reads interaction actions and detailed evidence scores from archived STITCH tables hosted on Zenodo. Filters interactions and uses HMDB and Ensembl-to-UniProt mappings retrieved through pypath to normalize identifiers. Produces metabolite–protein edges with interaction modes and evidence scores for integration into the MetaLinks knowledge graph.",
+  "version": "0.1.0",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "codeRepository": "https://github.com/biocypher/metalinks",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Elias Farr",
+      "affiliation": "University Hospital Heidelberg",
+      "url": "https://github.com/EliasFarr"
+    }
+  ],
+  "keywords": [
+    "biocypher",
+    "metabolomics",
+    "metalinks"
+  ],
+  "hasPart": [
+    {
+      "@type": "sc:Dataset",
+      "name": "STITCH",
+      "description": "Dataset containing 2 files (text/tab-separated-values) with automatically inferred types and structure",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
+      "citeAs": "STITCH. (2026). STITCH [Data set].",
+      "creator": [
+        {
+          "@type": "sc:Person",
+          "name": "STITCH"
+        }
+      ],
+      "datePublished": "2026-11-18T00:00:00Z",
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "url": "https://stitch-db.org/",
+      "version": "5.0",
+      "distribution": [
+        {
+          "@type": "cr:FileObject",
+          "@id": "stitch-1/file_0",
+          "name": "9606.actions.v5.0.tsv",
+          "contentSize": "1081387536",
+          "contentUrl": "https://zenodo.org/records/10200150/files/9606.actions.v5.0.tsv?download=1",
+          "encodingFormat": "text/tab-separated-values",
+          "sha256": "ae37a0800f220e414680cbf6720ac5f8c4668ed46310445d6700c94c34a849d8"
+        },
+        {
+          "@type": "cr:FileObject",
+          "@id": "stitch-1/file_1",
+          "name": "9606.protein_chemical.links.detailed.v5.0.tsv",
+          "contentSize": "745016311",
+          "contentUrl": "9606.protein_chemical.links.detailed.v5.0.tsv",
+          "encodingFormat": "text/tab-separated-values",
+          "sha256": "309c0af55cef4eebfebc3d0deec080da88f3efb7652c415bc664dacc02cb2736"
+        }
+      ],
+      "recordSet": [
+        {
+          "@type": "cr:RecordSet",
+          "@id": "stitch-1/9606.actions.v5.0",
+          "name": "stitch-actions-human",
+          "description": "Records from 9606.actions.v5.0.tsv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.actions.v5.0/item_id_a",
+              "name": "item_id_a",
+              "description": "Column 'item_id_a' from 9606.actions.v5.0.tsv",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_0"
+                },
+                "extract": {
+                  "column": "item_id_a"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.actions.v5.0/item_id_b",
+              "name": "item_id_b",
+              "description": "Column 'item_id_b' from 9606.actions.v5.0.tsv",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_0"
+                },
+                "extract": {
+                  "column": "item_id_b"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.actions.v5.0/mode",
+              "name": "mode",
+              "description": "Column 'mode' from 9606.actions.v5.0.tsv",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_0"
+                },
+                "extract": {
+                  "column": "mode"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.actions.v5.0/action",
+              "name": "action",
+              "description": "Column 'action' from 9606.actions.v5.0.tsv",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_0"
+                },
+                "extract": {
+                  "column": "action"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.actions.v5.0/a_is_acting",
+              "name": "a_is_acting",
+              "description": "Column 'a_is_acting' from 9606.actions.v5.0.tsv",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_0"
+                },
+                "extract": {
+                  "column": "a_is_acting"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.actions.v5.0/score",
+              "name": "score",
+              "description": "Column 'score' from 9606.actions.v5.0.tsv",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_0"
+                },
+                "extract": {
+                  "column": "score"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "@type": "cr:RecordSet",
+          "@id": "stitch-1/9606.protein_chemical.links.detailed.v5.0",
+          "name": "stitch-protein_chemical_links_detailed-human",
+          "description": "Records from 9606.protein_chemical.links.detailed.v5.0.tsv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.protein_chemical.links.detailed.v5.0/chemical",
+              "name": "chemical",
+              "description": "Column 'chemical' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_1"
+                },
+                "extract": {
+                  "column": "chemical"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.protein_chemical.links.detailed.v5.0/protein",
+              "name": "protein",
+              "description": "Column 'protein' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_1"
+                },
+                "extract": {
+                  "column": "protein"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.protein_chemical.links.detailed.v5.0/experimental",
+              "name": "experimental",
+              "description": "Column 'experimental' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_1"
+                },
+                "extract": {
+                  "column": "experimental"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.protein_chemical.links.detailed.v5.0/prediction",
+              "name": "prediction",
+              "description": "Column 'prediction' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_1"
+                },
+                "extract": {
+                  "column": "prediction"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.protein_chemical.links.detailed.v5.0/database",
+              "name": "database",
+              "description": "Column 'database' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_1"
+                },
+                "extract": {
+                  "column": "database"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.protein_chemical.links.detailed.v5.0/textmining",
+              "name": "textmining",
+              "description": "Column 'textmining' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_1"
+                },
+                "extract": {
+                  "column": "textmining"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "stitch-1/9606.protein_chemical.links.detailed.v5.0/combined_score",
+              "name": "combined_score",
+              "description": "Column 'combined_score' from 9606.protein_chemical.links.detailed.v5.0.tsv",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "stitch-1/file_1"
+                },
+                "extract": {
+                  "column": "combined_score"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "granularity": "Primary"
+}
