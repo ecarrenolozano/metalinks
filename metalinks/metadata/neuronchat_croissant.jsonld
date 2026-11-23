@@ -1,0 +1,528 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "dct": "http://purl.org/dc/terms/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "equivalentProperty": "cr:equivalentProperty",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "bsc": "https://bioschemas.org/profiles/Dataset/1.0-RELEASE/",
+    "componentType": "https://biocypher.org/registry/terms/componentType",
+    "granularity": "https://biocypher.org/registry/terms/granularity",
+    "@base": "cr_base_iri/"
+  },
+  "@type": "SoftwareSourceCode",
+  "componentType": "adapter",
+  "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE/",
+  "@id": "neuronchat-biocypher-adapter",
+  "name": "NeuronChat BioCypher Adapter",
+  "description": "BioCypher adapter for human neurotransmitter and gas-signaling interactions from NeuronChatDB. Maps ligand names to HMDB identifiers and target gene symbols to UniProt accessions, with fallback identifier mappings where needed, and emits metabolite-to-protein association edges.",
+  "version": "0.1.0",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "codeRepository": "https://github.com/biocypher/metalinks",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Elias Farr",
+      "affiliation": "University Hospital Heidelberg",
+      "url": "https://github.com/EliasFarr",
+      "identifier": "https://orcid.org/0000-0002-4441-6513"
+    }
+  ],
+  "keywords": [
+    "BioCypher",
+    "NeuronChat",
+    "neurotransmitters",
+    "neural signaling",
+    "metabolite",
+    "protein",
+    "HMDB",
+    "UniProt"
+  ],
+  "hasPart": [
+    {
+      "@type": "sc:Dataset",
+      "name": "NeuronChatDB human neurotransmitter and gas interactions",
+      "description": "Human neurotransmitter and gas-signaling subset of NeuronChatDB containing 127 ligand–target interaction records, with annotations for ligand production, transport and target composition. Derived from the original NeuronChatDB and distributed with the BioCypher adapter. The dataset version identifies the CSV’s Git revision, and the publication date records its public commit date.",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
+      "citeAs": "Zhao, W., Johnston, K. G., Ren, H., Xu, X., & Nie, Q. (2023). Inferring neuron-neuron communications from single-cell transcriptomics through NeuronChat. Nature Communications, 14, 1128. https://doi.org/10.1038/s41467-023-36800-w",
+      "creator": [
+        {
+          "@type": "sc:Person",
+          "name": "Wei Zhao",
+          "affiliation": "Department of Mathematics, University of California, Irvine",
+          "identifier": "https://orcid.org/0000-0003-1241-5652"
+        },
+        {
+          "@type": "sc:Person",
+          "name": "Kevin G. Johnston",
+          "affiliation": "Department of Mathematics, University of California, Irvine"
+        },
+        {
+          "@type": "sc:Person",
+          "name": "Honglei Ren",
+          "affiliation": "Department of Mathematics, University of California, Irvine"
+        },
+        {
+          "@type": "sc:Person",
+          "name": "Xiangmin Xu",
+          "affiliation": "Department of Anatomy and Neurobiology, University of California, Irvine",
+          "identifier": "https://orcid.org/0000-0002-5828-1533"
+        },
+        {
+          "@type": "sc:Person",
+          "name": "Qing Nie",
+          "affiliation": "Department of Mathematics, University of California, Irvine",
+          "identifier": "https://orcid.org/0000-0002-8804-3368"
+        }
+      ],
+      "datePublished": "2024-03-31T00:00:00Z",
+      "license": "No license",
+      "url": "https://github.com/Wei-BioMath/NeuronChatAnalysis2022/tree/main/NeuronChatDB_table",
+      "version": "d8ec00164264348e89d9b249d03378cd625a5875",
+      "distribution": [
+        {
+          "@type": "cr:FileObject",
+          "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0",
+          "name": "NeuronChatDB_human.csv",
+          "contentSize": "11599",
+          "contentUrl": "https://raw.githubusercontent.com/biocypher/metalinks/d8ec00164264348e89d9b249d03378cd625a5875/data/NeuronChat/NeuronChatDB_human.csv",
+          "encodingFormat": "text/csv",
+          "sha256": "d87b8926ad4263fae00ba1c3e1f19283911bd130c86ed74bb358f3e2b2e515f2"
+        }
+      ],
+      "recordSet": [
+        {
+          "@type": "cr:RecordSet",
+          "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human",
+          "name": "neuronchat-interactions-human",
+          "description": "Records from NeuronChatDB_human.csv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human/interaction_name",
+              "name": "interaction_name",
+              "description": "Ligand and target identifiers joined by an underscore, for example Glu_GRIN1.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0"
+                },
+                "extract": {
+                  "column": "interaction_name"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human/ligand_type",
+              "name": "ligand_type",
+              "description": "Ligand category: Neurotransmitter or Gas.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0"
+                },
+                "extract": {
+                  "column": "ligand_type"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human/interaction_type",
+              "name": "interaction_type",
+              "description": "Interaction category: ligand-receptor, ligand degradation, ligand uptake, or gas-effector.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0"
+                },
+                "extract": {
+                  "column": "interaction_type"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human/lig_contributor",
+              "name": "lig_contributor",
+              "description": "Hyphen-separated gene symbols contributing to ligand production or transport.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0"
+                },
+                "extract": {
+                  "column": "lig_contributor"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human/lig_contributor_group",
+              "name": "lig_contributor_group",
+              "description": "Group annotations for ligand-contributing genes, encoded as a hyphen-separated string.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0"
+                },
+                "extract": {
+                  "column": "lig_contributor_group"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human/lig_contributor_coeff",
+              "name": "lig_contributor_coeff",
+              "description": "Coefficient annotations for ligand-contributor groups, encoded as a hyphen-separated string.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0"
+                },
+                "extract": {
+                  "column": "lig_contributor_coeff"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human/target_subunit",
+              "name": "target_subunit",
+              "description": "Target-subunit annotation; empty throughout this subset.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0"
+                },
+                "extract": {
+                  "column": "target_subunit"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human/target_subunit_group",
+              "name": "target_subunit_group",
+              "description": "Target-subunit group annotation; value is 1 throughout this subset.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0"
+                },
+                "extract": {
+                  "column": "target_subunit_group"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/NeuronChatDB_human/target_subunit_coeff",
+              "name": "target_subunit_coeff",
+              "description": "Target-subunit coefficient annotation; value is 1 throughout this subset.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchatdb-human-neurotransmitter-and-gas-interactions-1/file_0"
+                },
+                "extract": {
+                  "column": "target_subunit_coeff"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "sc:Dataset",
+      "name": "NeuronChat ligand-to-HMDB mappings",
+      "description": "Lookup table connecting NeuronChat ligand names to HMDB identifiers, with chemical names, PubChem, ChEBI, KEGG and METLIN fields, and SMILES strings. Contains 11 records. Version and publication date identify the file’s Git revision and public commit date. Elias Farr is credited for the repository contribution; original mapping sources are undocumented. Chemical forms may differ across identifier columns.",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
+      "citeAs": "Elias Farr. (2023). NeuronChat ligand-to-HMDB mappings [Data set].",
+      "creator": [
+        {
+          "@type": "sc:Person",
+          "name": "Elias Farr",
+          "affiliation": "University Hospital Heidelberg",
+          "identifier": "https://orcid.org/0000-0002-4441-6513",
+          "url": "https://github.com/EliasFarr"
+        }
+      ],
+      "datePublished": "2023-07-11T00:00:00Z",
+      "license": "No license",
+      "url": "https://github.com/biocypher/metalinks/tree/main/data/mapping_tables",
+      "version": "616f2c68bd276119cc4398ed4fb8a0f90e392e1a",
+      "distribution": [
+        {
+          "@type": "cr:FileObject",
+          "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0",
+          "name": "Neuronchat_table.csv",
+          "contentSize": "1132",
+          "contentUrl": "https://raw.githubusercontent.com/biocypher/metalinks/db08397e72c822b6629ce1accbbd0f556256d012/data/mapping_tables/Neuronchat_table.csv",
+          "encodingFormat": "text/csv",
+          "sha256": "ff91d39ac966aec89a9088efd441da4295887742e8b0bb4d9e45d3bf4eff4395"
+        }
+      ],
+      "recordSet": [
+        {
+          "@type": "cr:RecordSet",
+          "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table",
+          "name": "neuronchat-ligand-hmdb-mappings",
+          "description": "Records from Neuronchat_table.csv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table/Query",
+              "name": "Query",
+              "description": "Ligand name used to look up an HMDB accession for a NeuronChat interaction.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0"
+                },
+                "extract": {
+                  "column": "Query"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table/Match",
+              "name": "Match",
+              "description": "Chemical name recorded alongside the query in the source mapping table.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0"
+                },
+                "extract": {
+                  "column": "Match"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table/HMDB",
+              "name": "HMDB",
+              "description": "HMDB accession assigned to the query and used as the source metabolite identifier.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0"
+                },
+                "extract": {
+                  "column": "HMDB"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table/PubChem",
+              "name": "PubChem",
+              "description": "PubChem Compound identifier recorded in the source mapping table.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0"
+                },
+                "extract": {
+                  "column": "PubChem"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table/ChEBI",
+              "name": "ChEBI",
+              "description": "ChEBI identifier recorded in the source mapping table, without the CHEBI prefix.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0"
+                },
+                "extract": {
+                  "column": "ChEBI"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table/KEGG",
+              "name": "KEGG",
+              "description": "KEGG Compound identifier recorded in the source mapping table.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0"
+                },
+                "extract": {
+                  "column": "KEGG"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table/METLIN",
+              "name": "METLIN",
+              "description": "Identifier recorded under the METLIN column in the source mapping table.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0"
+                },
+                "extract": {
+                  "column": "METLIN"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table/SMILES",
+              "name": "SMILES",
+              "description": "Chemical structure string recorded in SMILES notation.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0"
+                },
+                "extract": {
+                  "column": "SMILES"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "neuronchat-ligand-to-hmdb-mappings-2/Neuronchat_table/Comment",
+              "name": "Comment",
+              "description": "Undocumented annotation retained from the source mapping table.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "neuronchat-ligand-to-hmdb-mappings-2/file_0"
+                },
+                "extract": {
+                  "column": "Comment"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "sc:Dataset",
+      "name": "Fallback gene-symbol-to-UniProt mappings",
+      "description": "Lookup table containing 209 gene-symbol-to-UniProt mappings. The NeuronChat and CellPhoneDB adapters use these mappings when automatic gene-symbol resolution returns no result. Version and publication date identify the file’s Git revision and public commit date. Elias Farr is credited for the repository contribution; original mapping sources are undocumented.",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
+      "citeAs": "Elias Farr. (2024). Fallback gene-symbol-to-UniProt mappings [Data set].",
+      "creator": [
+        {
+          "@type": "sc:Person",
+          "name": "Elias Farr",
+          "affiliation": "University Hospital Heidelberg",
+          "identifier": "https://orcid.org/0000-0002-4441-6513",
+          "url": "https://github.com/EliasFarr"
+        }
+      ],
+      "datePublished": "2024-04-15T00:00:00Z",
+      "license": "No license",
+      "url": "https://github.com/biocypher/metalinks/tree/main/data/mapping_tables",
+      "version": "a34441e14e118bd6de95795481478cef6c902461",
+      "distribution": [
+        {
+          "@type": "cr:FileObject",
+          "@id": "fallback-gene-symbol-to-uniprot-mappings-3/file_0",
+          "name": "missing_symbols.csv",
+          "contentSize": "2753",
+          "contentUrl": "https://raw.githubusercontent.com/biocypher/metalinks/db08397e72c822b6629ce1accbbd0f556256d012/data/mapping_tables/missing_symbols.csv",
+          "encodingFormat": "text/csv",
+          "sha256": "a5a05d6e272a8c65f2f4c9d7ad6f33ab9a0d186ee47fef0367acadd2c3ff49a9"
+        }
+      ],
+      "recordSet": [
+        {
+          "@type": "cr:RecordSet",
+          "@id": "fallback-gene-symbol-to-uniprot-mappings-3/missing_symbols",
+          "name": "gene-symbol-uniprot-mappings",
+          "description": "Records from missing_symbols.csv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "@id": "fallback-gene-symbol-to-uniprot-mappings-3/missing_symbols/symbol",
+              "name": "symbol",
+              "description": "Gene symbol used as a lookup key when automatic mapping returns no result.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "fallback-gene-symbol-to-uniprot-mappings-3/file_0"
+                },
+                "extract": {
+                  "column": "symbol"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "fallback-gene-symbol-to-uniprot-mappings-3/missing_symbols/uniprot",
+              "name": "uniprot",
+              "description": "UniProt accession supplied as the fallback mapping for the gene symbol.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "fallback-gene-symbol-to-uniprot-mappings-3/file_0"
+                },
+                "extract": {
+                  "column": "uniprot"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "granularity": "Primary"
+}
