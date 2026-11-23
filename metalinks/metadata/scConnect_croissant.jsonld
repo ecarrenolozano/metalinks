@@ -1,0 +1,1133 @@
+{
+  "@context": {
+    "@language": "en",
+    "@vocab": "https://schema.org/",
+    "sc": "https://schema.org/",
+    "cr": "http://mlcommons.org/croissant/",
+    "rai": "http://mlcommons.org/croissant/RAI/",
+    "dct": "http://purl.org/dc/terms/",
+    "citeAs": "cr:citeAs",
+    "column": "cr:column",
+    "conformsTo": "dct:conformsTo",
+    "data": {
+      "@id": "cr:data",
+      "@type": "@json"
+    },
+    "dataType": {
+      "@id": "cr:dataType",
+      "@type": "@vocab"
+    },
+    "examples": {
+      "@id": "cr:examples",
+      "@type": "@json"
+    },
+    "equivalentProperty": "cr:equivalentProperty",
+    "extract": "cr:extract",
+    "field": "cr:field",
+    "fileProperty": "cr:fileProperty",
+    "fileObject": "cr:fileObject",
+    "fileSet": "cr:fileSet",
+    "format": "cr:format",
+    "includes": "cr:includes",
+    "isLiveDataset": "cr:isLiveDataset",
+    "jsonPath": "cr:jsonPath",
+    "key": "cr:key",
+    "md5": "cr:md5",
+    "parentField": "cr:parentField",
+    "path": "cr:path",
+    "recordSet": "cr:recordSet",
+    "references": "cr:references",
+    "regex": "cr:regex",
+    "repeated": "cr:repeated",
+    "replace": "cr:replace",
+    "samplingRate": "cr:samplingRate",
+    "separator": "cr:separator",
+    "source": "cr:source",
+    "subField": "cr:subField",
+    "transform": "cr:transform",
+    "bsc": "https://bioschemas.org/profiles/Dataset/1.0-RELEASE/",
+    "componentType": "https://biocypher.org/registry/terms/componentType",
+    "granularity": "https://biocypher.org/registry/terms/granularity",
+    "@base": "cr_base_iri/"
+  },
+  "@type": "SoftwareSourceCode",
+  "componentType": "adapter",
+  "dct:conformsTo": "https://bioschemas.org/profiles/ComputationalTool/1.0-RELEASE/",
+  "@id": "scconnect-biocypher-adapter",
+  "name": "scConnect BioCypher Adapter",
+  "description": "BioCypher adapter for metabolite and inorganic ligand–target interactions distributed with scConnect. Combines ligand annotations with interaction records, maps PubChem compound identifiers to HMDB accessions, and emits metabolite-to-protein association edges with interaction modes and supporting PubMed references.",
+  "version": "0.1.0",
+  "license": "https://www.gnu.org/licenses/gpl-3.0.html",
+  "codeRepository": "https://github.com/biocypher/metalinks",
+  "creator": [
+    {
+      "@type": "Person",
+      "name": "Elias Farr",
+      "affiliation": "University Hospital Heidelberg",
+      "url": "https://github.com/EliasFarr",
+      "identifier": "https://orcid.org/0000-0002-4441-6513"
+    }
+  ],
+  "keywords": [
+    "BioCypher",
+    "scConnect",
+    "ligand",
+    "metabolite",
+    "protein",
+    "pharmacology",
+    "HMDB",
+    "UniProt"
+  ],
+  "hasPart": [
+    {
+      "@type": "sc:Dataset",
+      "name": "scConnect ligands",
+      "description": "Ligand annotations from the IUPHAR/BPS Guide to PHARMACOLOGY, distributed as the cleaned 2020-5 table in scConnect. Contains 10,659 records with ligand names, chemical categories, database identifiers and molecular structures. The adapter uses entries classified as Metabolite or Inorganic with a PubChem compound identifier. The publication date records the distributed table’s public commit date.",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
+      "citeAs": "Armstrong, J. F., et al. (2020). The IUPHAR/BPS Guide to PHARMACOLOGY in 2020: extending immunopharmacology content and introducing the IUPHAR/MMV Guide to MALARIA PHARMACOLOGY. Nucleic Acids Research, 48(D1), D1006–D1021. https://doi.org/10.1093/nar/gkz951\n\nJakobsson, J. E. T., Spjuth, O., & Lagerström, M. C. (2021). scConnect: a method for exploratory analysis of cell–cell communication based on single-cell RNA-sequencing data. Bioinformatics, 37(20), 3501–3508. https://doi.org/10.1093/bioinformatics/btab245",
+      "creator": [
+        {
+          "@type": "sc:Organization",
+          "name": "IUPHAR/BPS Guide to PHARMACOLOGY",
+          "url": "https://www.guidetopharmacology.org/"
+        }
+      ],
+      "datePublished": "2021-01-25T00:00:00Z",
+      "license": "CC-BY-4.0",
+      "url": "https://github.com/JonETJakobsson/scConnect/tree/master/scConnect/data/GTP_tables_clean/2020-5",
+      "version": "2020-5",
+      "distribution": [
+        {
+          "@type": "cr:FileObject",
+          "@id": "scconnect-ligands-1/file_0",
+          "name": "ligands.csv",
+          "contentSize": "3872279",
+          "contentUrl": "https://raw.githubusercontent.com/JonETJakobsson/scConnect/546053d7a8a18762b90f4a5e4ca2a76be7a2b459/scConnect/data/GTP_tables_clean/2020-5/ligands.csv",
+          "encodingFormat": "text/csv",
+          "sha256": "ab3eb6902d78a9af1b513ba6b52242119c455614c138bfc9202ddf6d24089adc"
+        }
+      ],
+      "recordSet": [
+        {
+          "@type": "cr:RecordSet",
+          "@id": "scconnect-ligands-1/ligands",
+          "name": "scconnect-ligands",
+          "description": "Records from ligands.csv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/Ligand_id",
+              "name": "Ligand id",
+              "description": "Identifier assigned to the ligand by the IUPHAR/BPS Guide to PHARMACOLOGY.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "Ligand id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/Name",
+              "name": "Name",
+              "description": "Ligand name recorded in the Guide to PHARMACOLOGY table.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "Name"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/Species",
+              "name": "Species",
+              "description": "Species annotation recorded for the ligand; multiple species may be comma-separated.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "Species"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/Type",
+              "name": "Type",
+              "description": "Ligand category, such as Synthetic organic, Peptide, Metabolite, Natural product, Antibody or Inorganic.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "Type"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/Approved",
+              "name": "Approved",
+              "description": "Source flag marking approved-drug status; populated values are “yes” in this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "Approved"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/Withdrawn",
+              "name": "Withdrawn",
+              "description": "Source flag marking withdrawn-drug status; populated values are “yes” in this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "Withdrawn"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/Labelled",
+              "name": "Labelled",
+              "description": "Source flag marking a labelled ligand; populated values are “yes” in this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "Labelled"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/Radioactive",
+              "name": "Radioactive",
+              "description": "Source flag marking a radioactive ligand; populated values are “yes” in this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "Radioactive"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/PubChem_SID",
+              "name": "PubChem SID",
+              "description": "Field for a PubChem Substance identifier; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "PubChem SID"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/PubChem_CID",
+              "name": "PubChem CID",
+              "description": "PubChem Compound identifier recorded for the ligand.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "PubChem CID"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/UniProt_id",
+              "name": "UniProt id",
+              "description": "UniProt accession or pipe-separated accessions recorded for the ligand.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "UniProt id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/IUPAC_name",
+              "name": "IUPAC name",
+              "description": "Chemical name recorded in the source table’s IUPAC name field.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "IUPAC name"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/INN",
+              "name": "INN",
+              "description": "International Nonproprietary Name recorded for the ligand, where available.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "INN"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/Synonyms",
+              "name": "Synonyms",
+              "description": "Alternative ligand names and annotations recorded in the source table, separated by pipes where multiple values occur.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "Synonyms"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/SMILES",
+              "name": "SMILES",
+              "description": "Molecular structure represented as a SMILES string, where available.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "SMILES"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/InChIKey",
+              "name": "InChIKey",
+              "description": "InChIKey structure identifier recorded for the ligand, where available.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "InChIKey"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/InChI",
+              "name": "InChI",
+              "description": "International Chemical Identifier string recorded for the ligand, where available.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "InChI"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/GtoImmuPdb",
+              "name": "GtoImmuPdb",
+              "description": "Source flag indicating that the ligand is tagged in the Guide to IMMUNOPHARMACOLOGY.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "GtoImmuPdb"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-ligands-1/ligands/GtoMPdb",
+              "name": "GtoMPdb",
+              "description": "Source flag indicating that the ligand is tagged in the Guide to MALARIA PHARMACOLOGY.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-ligands-1/file_0"
+                },
+                "extract": {
+                  "column": "GtoMPdb"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "sc:Dataset",
+      "name": "scConnect interactions",
+      "description": "Ligand–target interaction records derived from the Guide to PHARMACOLOGY tables distributed with scConnect. Contains 20,289 records covering multiple species, with target identifiers, interaction classifications and PubMed references. The adapter input differs from scConnect’s cleaned 2020-5 table in target UniProt mappings and row expansion. Version and publication date identify the input CSV’s Git revision and public commit date.",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
+      "citeAs": "Armstrong, J. F., et al. (2020). The IUPHAR/BPS Guide to PHARMACOLOGY in 2020: extending immunopharmacology content and introducing the IUPHAR/MMV Guide to MALARIA PHARMACOLOGY. Nucleic Acids Research, 48(D1), D1006–D1021. https://doi.org/10.1093/nar/gkz951\n\nJakobsson, J. E. T., Spjuth, O., & Lagerström, M. C. (2021). scConnect: a method for exploratory analysis of cell–cell communication based on single-cell RNA-sequencing data. Bioinformatics, 37(20), 3501–3508. https://doi.org/10.1093/bioinformatics/btab245",
+      "creator": [
+        {
+          "@type": "sc:Organization",
+          "name": "IUPHAR/BPS Guide to PHARMACOLOGY",
+          "url": "https://www.guidetopharmacology.org/"
+        }
+      ],
+      "datePublished": "2024-03-31T00:00:00Z",
+      "license": "CC-BY-4.0",
+      "url": "https://github.com/JonETJakobsson/scConnect/tree/master/scConnect/data/GTP_tables_clean/2020-5",
+      "version": "d8ec00164264348e89d9b249d03378cd625a5875",
+      "distribution": [
+        {
+          "@type": "cr:FileObject",
+          "@id": "scconnect-interactions-2/file_0",
+          "name": "interactions.csv",
+          "contentSize": "3358423",
+          "contentUrl": "https://raw.githubusercontent.com/biocypher/metalinks/d8ec00164264348e89d9b249d03378cd625a5875/data/scConnect/interactions.csv",
+          "encodingFormat": "text/csv",
+          "sha256": "fc75829014fc90b398c13cbf536723f029cc67b80ddefdf857901f7d0f6b6195"
+        }
+      ],
+      "recordSet": [
+        {
+          "@type": "cr:RecordSet",
+          "@id": "scconnect-interactions-2/interactions",
+          "name": "scconnect-interactions-2/interactions",
+          "description": "Records from interactions.csv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/interaction_id",
+              "name": "interaction_id",
+              "description": "Row identifier assigned during scConnect table export; repeated where an interaction has been expanded into multiple rows.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "interaction_id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target",
+              "name": "target",
+              "description": "Target name recorded for the interaction.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_id",
+              "name": "target_id",
+              "description": "Source target identifier field; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_gene_symbol",
+              "name": "target_gene_symbol",
+              "description": "Gene symbol or pipe-separated gene symbols associated with the target.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_gene_symbol"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_uniprot",
+              "name": "target_uniprot",
+              "description": "UniProt accession or pipe-separated accessions associated with the target.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_uniprot"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_ensembl_gene_id",
+              "name": "target_ensembl_gene_id",
+              "description": "Ensembl gene identifier or pipe-separated identifiers associated with the target.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_ensembl_gene_id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_ligand",
+              "name": "target_ligand",
+              "description": "Name recorded when the interaction target is represented as a ligand in the source database.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_ligand"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_ligand_id",
+              "name": "target_ligand_id",
+              "description": "Source identifier field for a ligand acting as the target; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_ligand_id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_ligand_gene_symbol",
+              "name": "target_ligand_gene_symbol",
+              "description": "Gene symbol annotation for a ligand acting as the interaction target.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_ligand_gene_symbol"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_ligand_ensembl_gene_id",
+              "name": "target_ligand_ensembl_gene_id",
+              "description": "Ensembl gene identifier annotation for a ligand acting as the interaction target.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_ligand_ensembl_gene_id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_ligand_uniprot",
+              "name": "target_ligand_uniprot",
+              "description": "UniProt accession annotation for a ligand acting as the interaction target.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_ligand_uniprot"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_ligand_pubchem_sid",
+              "name": "target_ligand_pubchem_sid",
+              "description": "PubChem Substance identifier field for a ligand acting as the target; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_ligand_pubchem_sid"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/target_species",
+              "name": "target_species",
+              "description": "Species annotation associated with the interaction target.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "target_species"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/ligand",
+              "name": "ligand",
+              "description": "Ligand name used to match the ligand annotation table.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "ligand"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/ligand_id",
+              "name": "ligand_id",
+              "description": "Source ligand identifier field; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "ligand_id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/ligand_gene_symbol",
+              "name": "ligand_gene_symbol",
+              "description": "Gene symbol annotation associated with the ligand.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "ligand_gene_symbol"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/ligand_species",
+              "name": "ligand_species",
+              "description": "Species annotation associated with the ligand.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "ligand_species"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/ligand_pubchem_sid",
+              "name": "ligand_pubchem_sid",
+              "description": "PubChem Substance identifier field for the ligand; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "ligand_pubchem_sid"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/approved_drug",
+              "name": "approved_drug",
+              "description": "Source approved-drug status flag, stored as t or f.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "approved_drug"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/type",
+              "name": "type",
+              "description": "Pharmacological interaction classification, such as Agonist, Antagonist or Inhibitor.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "type"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/action",
+              "name": "action",
+              "description": "Action annotation recorded for the interaction, such as Inhibition or Positive.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "action"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/action_comment",
+              "name": "action_comment",
+              "description": "Additional source text describing the interaction’s action or experimental context.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "action_comment"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/selectivity",
+              "name": "selectivity",
+              "description": "Selectivity annotation recorded for the interaction.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "selectivity"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/endogenous",
+              "name": "endogenous",
+              "description": "Source endogenous-status flag, stored as t or f.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "endogenous"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/primary_target",
+              "name": "primary_target",
+              "description": "Source flag marking a primary-target interaction, stored as t or f.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "primary_target"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/concentration_range",
+              "name": "concentration_range",
+              "description": "Concentration range recorded as source text; units are not specified by this column alone.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "concentration_range"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/affinity_units",
+              "name": "affinity_units",
+              "description": "Affinity measurement label, such as pIC50, pKd or pKi.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "affinity_units"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/affinity_high",
+              "name": "affinity_high",
+              "description": "Source high-affinity value field; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "affinity_high"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/affinity_median",
+              "name": "affinity_median",
+              "description": "Source median-affinity value field; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "affinity_median"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/affinity_low",
+              "name": "affinity_low",
+              "description": "Source low-affinity value field; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "affinity_low"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/original_affinity_units",
+              "name": "original_affinity_units",
+              "description": "Original affinity measurement label, such as IC50 or Kd.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "original_affinity_units"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/original_affinity_low_nm",
+              "name": "original_affinity_low_nm",
+              "description": "Original low-affinity value field labelled in nanomolar units; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "original_affinity_low_nm"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/original_affinity_median_nm",
+              "name": "original_affinity_median_nm",
+              "description": "Original median-affinity value field labelled in nanomolar units; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "original_affinity_median_nm"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/original_affinity_high_nm",
+              "name": "original_affinity_high_nm",
+              "description": "Original high-affinity value field labelled in nanomolar units; empty throughout this snapshot.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "original_affinity_high_nm"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/original_affinity_relation",
+              "name": "original_affinity_relation",
+              "description": "Comparison operator recorded for the original affinity measurement, such as = or <.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "original_affinity_relation"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/assay_description",
+              "name": "assay_description",
+              "description": "Source description of the assay used to characterize the interaction.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "assay_description"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/receptor_site",
+              "name": "receptor_site",
+              "description": "Binding-site annotation recorded for the interaction.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "receptor_site"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/ligand_context",
+              "name": "ligand_context",
+              "description": "Context annotation recorded for the ligand, such as Extracellular or intracellular.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "ligand_context"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "scconnect-interactions-2/interactions/pubmed_id",
+              "name": "pubmed_id",
+              "description": "Supporting PubMed identifiers, separated by pipes where multiple references occur.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "scconnect-interactions-2/file_0"
+                },
+                "extract": {
+                  "column": "pubmed_id"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "@type": "sc:Dataset",
+      "name": "HMDB mappings",
+      "description": "Lookup table associating HMDB accessions with PubChem, KEGG and ChEBI identifiers. Contains 217,920 records. The scConnect adapter uses PubChem compound identifiers to look up HMDB accessions. Version and publication date identify the file’s Git revision and public commit date. Elias Farr is credited for the repository contribution; the exact generation procedure and original database snapshot are undocumented.",
+      "conformsTo": "http://mlcommons.org/croissant/1.0",
+      "citeAs": "Elias Farr. (2023). HMDB mappings [Data set].",
+      "creator": [
+        {
+          "@type": "sc:Person",
+          "name": "Elias Farr",
+          "affiliation": "University Hospital Heidelberg",
+          "identifier": "https://orcid.org/0000-0002-4441-6513",
+          "url": "https://github.com/EliasFarr"
+        }
+      ],
+      "datePublished": "2023-03-22T00:00:00Z",
+      "license": "No license",
+      "url": "https://github.com/biocypher/metalinks/tree/main/data/mapping_tables",
+      "version": "37a0d2ddc585d01357b41f56b6a58558f7b2dff8",
+      "distribution": [
+        {
+          "@type": "cr:FileObject",
+          "@id": "hmdb-mappings-3/file_0",
+          "name": "hmdb_mapping.csv",
+          "contentSize": "4320521",
+          "contentUrl": "https://raw.githubusercontent.com/biocypher/metalinks/db08397e72c822b6629ce1accbbd0f556256d012/data/mapping_tables/hmdb_mapping.csv",
+          "encodingFormat": "text/csv",
+          "sha256": "c16756234fcbc24a8effe20296142502634839e1fa94208caeb791fd86ae0e83"
+        }
+      ],
+      "recordSet": [
+        {
+          "@type": "cr:RecordSet",
+          "@id": "hmdb-mappings-3/hmdb_mapping",
+          "name": "hmdb-mappings-3/hmdb_mapping",
+          "description": "Records from hmdb_mapping.csv",
+          "field": [
+            {
+              "@type": "cr:Field",
+              "@id": "hmdb-mappings-3/hmdb_mapping/pubchem_id",
+              "name": "pubchem_id",
+              "description": "PubChem compound identifier used to look up an HMDB accession.",
+              "dataType": "cr:Int64",
+              "source": {
+                "fileObject": {
+                  "@id": "hmdb-mappings-3/file_0"
+                },
+                "extract": {
+                  "column": "pubchem_id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "hmdb-mappings-3/hmdb_mapping/accession",
+              "name": "accession",
+              "description": "HMDB accession recorded for the metabolite and used as the graph’s source identifier.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "hmdb-mappings-3/file_0"
+                },
+                "extract": {
+                  "column": "accession"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "hmdb-mappings-3/hmdb_mapping/kegg_id",
+              "name": "kegg_id",
+              "description": "KEGG identifier recorded in the source mapping table.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "hmdb-mappings-3/file_0"
+                },
+                "extract": {
+                  "column": "kegg_id"
+                }
+              }
+            },
+            {
+              "@type": "cr:Field",
+              "@id": "hmdb-mappings-3/hmdb_mapping/chebi_id",
+              "name": "chebi_id",
+              "description": "ChEBI identifier recorded in the source mapping table, including the CHEBI prefix where supplied.",
+              "dataType": "sc:Text",
+              "source": {
+                "fileObject": {
+                  "@id": "hmdb-mappings-3/file_0"
+                },
+                "extract": {
+                  "column": "chebi_id"
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "granularity": "Primary"
+}
