@@ -88,7 +88,7 @@
       ],
       "datePublished": "2023-11-23T00:00:00Z",
       "license": "CC-BY-4.0",
-      "url": "http://stitch.embl.de/",
+      "url": "https://zenodo.org/records/10200150",
       "version": "5.0",
       "distribution": [
         {
@@ -96,7 +96,7 @@
           "@id": "stitch-1/file_0",
           "name": "9606.actions.v5.0.tsv",
           "contentSize": "1081387536",
-          "contentUrl": "9606.actions.v5.0.tsv",
+          "contentUrl": "https://zenodo.org/records/10200150/files/9606.actions.v5.0.tsv?download=1",
           "encodingFormat": "text/tab-separated-values",
           "sha256": "ae37a0800f220e414680cbf6720ac5f8c4668ed46310445d6700c94c34a849d8"
         },
@@ -105,7 +105,7 @@
           "@id": "stitch-1/file_1",
           "name": "9606.protein_chemical.links.detailed.v5.0.tsv",
           "contentSize": "745016311",
-          "contentUrl": "9606.protein_chemical.links.detailed.v5.0.tsv",
+          "contentUrl": "https://zenodo.org/records/10200150/files/9606.protein_chemical.links.detailed.v5.0.tsv?download=1",
           "encodingFormat": "text/tab-separated-values",
           "sha256": "309c0af55cef4eebfebc3d0deec080da88f3efb7652c415bc664dacc02cb2736"
         }
@@ -114,7 +114,7 @@
         {
           "@type": "cr:RecordSet",
           "@id": "stitch-1/9606.actions.v5.0",
-          "name": "stitch-1/9606.actions.v5.0",
+          "name": "stitch-actions-human",
           "description": "Records from 9606.actions.v5.0.tsv",
           "field": [
             {
@@ -212,7 +212,7 @@
         {
           "@type": "cr:RecordSet",
           "@id": "stitch-1/9606.protein_chemical.links.detailed.v5.0",
-          "name": "stitch-1/9606.protein_chemical.links.detailed.v5.0",
+          "name": "stitch-links-detailed-human",
           "description": "Records from 9606.protein_chemical.links.detailed.v5.0.tsv",
           "field": [
             {
